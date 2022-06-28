@@ -1,0 +1,5 @@
+TEST	START	16
+tmp1	RESW	1
+tmp2	RESW	1
+	LDA	=C'EOF'
+	+LDA	tmp2

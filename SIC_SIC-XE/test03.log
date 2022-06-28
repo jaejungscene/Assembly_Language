@@ -1,0 +1,18 @@
+***** Section <default> *****
+Stats: size=78  blocks=78  symbols=7  literals=0  relocations=0
+Blocks
+    name        start   size  #ins #dir #sto
+    <default>   00000  0004E    15    5    1
+Symbols
+    name        hex       dec  scope     kind      type      description
+    BUFEND   00004E        78  local     absolute  notlabel  *
+    BUFFER   00002E        46  local     relative  data      label
+    FIRST    000026        38  local     relative  code      label
+    INDEV    00002C        44  local     relative  data      label
+    MAXLEN   000020        32  local     absolute  notlabel  BUFEND-BUFFER
+    OUTDEV   00002D        45  local     relative  data      label
+    Racing   000000         0  exported  relative  code      label
+Literals
+    label   definition
+Relocations
+    address length flag symbol

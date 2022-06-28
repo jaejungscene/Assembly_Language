@@ -1,0 +1,24 @@
+00000            main  START   0    
+00000                  EXTREF  result    
+00000                  EXTREF  fact    
+00000                  EXTREF  print    
+00000                  EXTREF  stinit    
+                  
+00000  01202F          LDA     #gap    
+00003  4B100000       +JSUB    stinit    . postavi sklad
+00007  010001    loop  LDA     #1    
+0000A  0F100000       +STA     result    . result = 1
+0000E  03201E          LDA     i    
+00011  190001          ADD     #1    . i++
+00014  0F2018          STA     i    
+00017  29000A          COMP    #10    
+0001A  33200F          JEQ     halt    . if i == 10 then halt
+0001D  4B100000       +JSUB    fact    . poklici fact(i)
+00021  03100000       +LDA     result    
+00025  4B100000       +JSUB    print    . izpisi rezultat
+00029  3F2FDB          J       loop    
+0002C  3F2FFD    halt  J       halt    
+                  
+0002F  000000    i     WORD    0    
+00032  00....00  gap   RESW    64    
+000F2                  END     main    

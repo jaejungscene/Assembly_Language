@@ -1,0 +1,10 @@
+00000                  EXTREF  result    
+00000                  EXTDEF  TMP    
+00000                  EXTDEF  push    
+                  
+00000  03100000       +LDA     result    
+00004  032003          LDA     TMP    
+                  
+00007  032000    push  LDA     TMP    
+                  
+0000A  68....6F  TMP   BYTE    C'hello'    

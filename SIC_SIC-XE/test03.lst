@@ -1,0 +1,28 @@
+00000            Racing  START   0    
+                  
+00000  B410              CLEAR   X    
+00002  DB2027            RD      INDEV    
+00005  57A026            STCH    BUFFER,X    
+00008  DB2021            RD      INDEV    
+0000B  57A020            STCH    BUFFER,X    
+                  
+                  
+                  
+0000E  010031            LDA     #49    
+00011  DF2019            WD      OUTDEV    
+00014  010020            LDA     #32    
+00017  DF2013            WD      OUTDEV    
+0001A  010032            LDA     #50    
+0001D  DF200D            WD      OUTDEV    
+                  
+00020  010020            LDA     #32    
+00023  1D0030            SUB     #48    . A에 FFFFF0 남음
+                  
+00026  03004E    FIRST   LDA     BUFEND    
+00029  010020            LDA     #MAXLEN    
+                  
+0002C  00        INDEV   BYTE    0    
+0002D  01        OUTDEV  BYTE    1    
+0002E  00....00  BUFFER  RESB    32    . = 0x1000
+0004E            BUFEND  EQU     *    . BUFFER 바로 뒤 주소
+0004E            MAXLEN  EQU     BUFEND-BUFFER    . = 32

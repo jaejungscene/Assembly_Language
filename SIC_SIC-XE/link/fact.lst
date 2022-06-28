@@ -1,0 +1,31 @@
+00000            fact    START   0    
+00000                    EXTREF  push    
+00000                    EXTREF  pop    
+00000                    EXTDEF  result    
+                  
+00000  290001            COMP    #1    
+00003  332031            JEQ     exit    . if A == 1 then exit
+00006  0F2034            STA     tmpA    . shrani A na tmpA
+00009  172034            STL     tmpL    . shrani L na tmpL
+                  
+0000C  4B100000         +JSUB    push    . push A
+00010  03202D            LDA     tmpL    
+00013  4B100000         +JSUB    push    . push L
+00017  032023            LDA     tmpA    . A = tmpA
+0001A  1D0001            SUB     #1    . A--
+0001D  4B2FE0            JSUB    fact    . rekurzivni klic
+                  
+00020  4B100000         +JSUB    pop    . pop L
+00024  0F2019            STA     tmpL    . shrani na tmpL
+00027  4B100000         +JSUB    pop    . pop A
+                  
+0002B  23200C            MUL     result    
+0002E  0F2009            STA     result    . result = result * A
+00031  0B200C            LDL     tmpL    . obnovi L
+00034  4F0000            RSUB        
+00037  4F0000    exit    RSUB        
+                  
+0003A  000001    result  WORD    1    
+0003D  000000    tmpA    RESW    1    
+00040  000000    tmpL    RESW    1    
+00043  00....00  gap     RESW    64    

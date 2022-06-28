@@ -1,0 +1,11 @@
+00000            test5   START   0    
+00000                    EXTREF  push    
+00000                    EXTREF  TMP    
+00000                    EXTDEF  result    
+                  
+00000  332008            JEQ     exit    . if A == 1 then exit
+00003  03100000         +LDA     TMP    
+00007  4B100000         +JSUB    push    . push A
+0000B  4F0000    exit    RSUB        
+                  
+0000E  000001    result  WORD    1    
